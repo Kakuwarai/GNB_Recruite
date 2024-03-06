@@ -37,7 +37,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-sm font-medium  md:ml-2 text-gray-400">Terms</span>
+                    <span class="ml-1 text-sm font-medium  md:ml-2 text-gray-400">Posting</span>
                 </div>
             </li>
         </ol>
@@ -73,51 +73,39 @@
                 </div>
             </div>
   
-            <button type="button" @click="addTerms()"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-1.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <svg class="mr-1 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-  
-                <span>Add</span>
-            </button>
-  
             <div class="mt-1 relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 ">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Code
+                                Firstname
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Name
+                                Middlename
                             </th>
-                  
-                            <th scope="col" class="px-6 py-3 ">
-                                Status
+                            <th scope="col" class="px-6 py-3">
+                                Lastname
                             </th>
+                     
                             <th scope="col" class="px-6 py-3 text-right">
                                 Edit
                             </th>
                         </tr>
                     </thead>
                     <tbody v-if="tblLoading == false">
-                        <tr v-for="data in termList" class="bg-white border-b  hover:bg-gray-50 ">
+                        <tr v-for="data in userList" class="bg-white border-b  hover:bg-gray-50 ">
                             <td class="px-6 py-4">
-                                {{ data.code }}
+                                {{ data.firstname }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ data.description }}
+                                {{ data.middlename}}
                             </td>
-                            <td class="px-6 py-4">
-                                <span v-if="data.status == 1"
-                                    class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-green-400">Active</span>
-                                    <span v-else
-                                    class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-red-400">Inactive</span>
+                            <td class="px-6 py-4 max-w-96">
+                                {{ data.lastname }}
                             </td>
+                           
                             <td class="px-6 py-4 text-right">
-                                <button type="button" @click="editTerms(data)"
+                                <button type="button" @click="editUser(data)"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-1.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" stroke-width="2"
                                         stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -147,18 +135,17 @@
                             <td role="status" class="max-w-sm animate-pulse">
                                 <div class=" h-7 bg-gray-200 rounded-lg m-2"></div>
                             </td>
-  
-  
+                          
                         </tr>
   
                     </tbody>
   
                 </table>
-                <el-empty v-if="termList == '' && tblLoading == false" :image-size="200" />
+                <el-empty v-if="userList == '' && tblLoading == false" :image-size="200" />
             </div>
             <br>
             <el-pagination layout="sizes ,prev, pager, next, jumper, -> ,total" @current-change="handleCurrentChange"
-              v-model:page-size="pageSize" :total="paginationPage" :page-sizes="[10, 50, 100, 200]" />
+              v-model:page-size="pageSize" :total="paginationPage" :page-sizes="[5, 10, 50, 100]" />
   
         </div>
     </div>
@@ -173,10 +160,10 @@
   const router = useRouter(),
     userDetails = ref(JSON.parse(localStorage.getItem('login'))),
     txtSearch = ref(''),
-    termList = ref([]),
+    userList = ref([]),
     paginationPage = ref(1),
     tblLoading = ref(false),
-    pageSize = ref(10)
+    pageSize = ref(5)
   
   
   onMounted(() => {
@@ -189,13 +176,14 @@
   
   async function getUsers(page) {
     tblLoading.value = true
-    await globalAPI().post(`mTerms/temrList?page=${page}&size=${pageSize.value}&search=${txtSearch.value}`)
+    console.log(userDetails.value);
+    await globalAPI().post(`Menu/userList?userId=${userDetails.value.id}&page=${page}&size=${pageSize.value}&search=${txtSearch.value}`)
         .then(async (response) => {
   
             if (response.status == 200) {
 
-                termList.value = response.data.termList
-                paginationPage.value = response.data.termCount
+                userList.value = response.data.userList
+                paginationPage.value = response.data.userCount
                 tblLoading.value = false    
               
             }
@@ -217,14 +205,11 @@
         })
   }
   
-  function addTerms() {
-    router.replace('/maintenance/mTerms/addTerms')
-  }
   
-  function editTerms(editTermseditSelectedTerms) {
+  function editUser(editUser) {
   
-    sessionStorage.setItem('editTerms', JSON.stringify(editTermseditSelectedTerms))
-    router.replace('/maintenance/mTerms/editTerms')
+    localStorage.setItem('editMenu', JSON.stringify(editUser))
+    router.replace('/Maintenance/menu/editMenu')
   }
   
   

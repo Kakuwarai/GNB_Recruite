@@ -83,10 +83,25 @@
                 <button @click="checked[0] == true? checked[0]=false:checked[0]=true"
                 :class=" checked[0]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl  hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Transaction
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Posting
                         <el-tag :type="checked[0]? '':'info'">{{ checked[0]?'Active':'Inactive' }}</el-tag>
                     </h5>
-                  
+                </button>
+
+                <button @click="checked[1] == true? checked[1]=false:checked[1]=true"
+                :class=" checked[1]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                class="p-5 border rounded-2xl shadow-xl  hover:bg-gray-100 ">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Candidates
+                        <el-tag :type="checked[1]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
+                    </h5>
+                </button>
+
+                <button @click="checked[2] == true? checked[2]=false:checked[2]=true"
+                :class=" checked[2]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                class="p-5 border rounded-2xl shadow-xl  hover:bg-gray-100 ">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Progress
+                        <el-tag :type="checked[2]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
+                    </h5>
                 </button>
 
             </div>
@@ -96,38 +111,19 @@
             <br>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 
-                <button  @click="checked[1] == true? checked[1]=false:checked[1]=true"
-                :class=" checked[1]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
-                class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Users
-                        <el-tag :type="checked[1]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
-                    </h5>
-                  
-                </button>
-
-                <button  @click="checked[2] == true? checked[2]=false:checked[2]=true"
-                :class=" checked[2]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
-                class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Branches
-                        <el-tag :type="checked[2]? '':'info'">{{ checked[2]?'Active':'Inactive' }}</el-tag>
-                    </h5>
-                  
-                </button>
-
                 <button  @click="checked[3] == true? checked[3]=false:checked[3]=true"
                 :class=" checked[3]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Menus
-                        <el-tag :type="checked[3]? '':'info'">{{ checked[3]?'Active':'Inactive' }}</el-tag>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Users
+                        <el-tag :type="checked[3]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
                     </h5>
                   
                 </button>
 
-
                 <button  @click="checked[4] == true? checked[4]=false:checked[4]=true"
-                :class=" checked[4]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[2]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Customer
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Job
                         <el-tag :type="checked[4]? '':'info'">{{ checked[4]?'Active':'Inactive' }}</el-tag>
                     </h5>
                   
@@ -136,36 +132,19 @@
                 <button  @click="checked[5] == true? checked[5]=false:checked[5]=true"
                 :class=" checked[5]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Charges 
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Menu
                         <el-tag :type="checked[5]? '':'info'">{{ checked[5]?'Active':'Inactive' }}</el-tag>
                     </h5>
                   
                 </button>
 
-                <button  @click="checked[6] == true? checked[6]=false:checked[6]=true"
-                :class=" checked[6]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
-                class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Terms 
-                        <el-tag :type="checked[6]? '':'info'">{{ checked[6]?'Active':'Inactive' }}</el-tag>
-                    </h5>
-                  
-                </button>
 
-                <button  @click="checked[7] == true? checked[7]=false:checked[7]=true"
-                :class=" checked[7]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
-                class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Position 
-                        <el-tag :type="checked[7]? '':'info'">{{ checked[7]?'Active':'Inactive' }}</el-tag>
-                    </h5>
-                  
-                </button>
+              
                 
 
             </div>
             <br>
-            <br>
-            <br>
-            <br>
+  
         <div class="flex justify-end">
             <button type="button" @click="btnSave()" 
                         class="text-white bg-[#3b984a] hover:bg-[#3b984a]/90 focus:ring-4 focus:outline-none focus:ring-[#3b984a]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center :focus:ring-[#3b984a]/55 mr-2 mb-2">
@@ -196,7 +175,7 @@ import Swal from 'sweetalert2';
 
 
 const userDetails = ref(JSON.parse(localStorage.getItem('login'))),
-    userMenuData = ref(),
+    userMenuData = ref(JSON.parse(localStorage.getItem("editMenu"))),
     loading = ref(false),
     whoIsLoading = ref('loading....'),
     router = useRouter(), svg = `
@@ -215,27 +194,26 @@ const userDetails = ref(JSON.parse(localStorage.getItem('login'))),
     }
 
 onMounted(() => {
-    userMenuData.value = JSON.parse(sessionStorage.getItem('editMenu'))
-
+   
     userMenu()
 })
 
 async function userMenu() {
     loading.value = true
-    await globalAPI().post(`mMenu/userMenus?id=${userMenuData.value[0]}&branchCode=${userMenuData.value[1]}`)
+    await globalAPI().post(`Menu/userMenu?userId=${userMenuData.value.id}`)
         .then(async (response) => {
 
             if (response.status == 200) {
               
                 if(response.data.length != 0){
                     response.data.forEach(element => {
-                        if(element.menuId == 3){
+                        if(element.menuId == 2){
                             checked.value[0] = true
                         }
-                        if (element.menuId == 4) {
+                        if (element.menuId == 3) {
                             checked.value[1] = true
                         }
-                        if (element.menuId == 5) {
+                        if (element.menuId == 4) {
                             checked.value[2] = true
                         }
                         if (element.menuId == 6) {
@@ -247,12 +225,7 @@ async function userMenu() {
                         if (element.menuId == 8) {
                             checked.value[5] = true
                         }
-                        if (element.menuId == 9) {
-                            checked.value[6] = true
-                        }
-                        if (element.menuId == 10) {
-                            checked.value[7] = true
-                        }
+                      
                         
                     });
                 }
@@ -273,60 +246,27 @@ async function userMenu() {
             loading.value = false
             swalPopUp(error, "Can't connect to server")
         })
+        loading.value = false
 }
 
 async function btnSave() {
     whoIsLoading.value = 'Saving...'
     loading.value = true
-    await globalAPI().post(`mMenu/userMenusSave`,{
-        'userId' : userDetails.value.id,
-        'selectedUserId':userMenuData.value[0],
-        'transaction' :checked.value[0],
-        'users':checked.value[1],
-        'customer':checked.value[4],
-        'branches':checked.value[2],
-        'menus':checked.value[3],
-        'charges':checked.value[5],
-        'terms':checked.value[6],
-        'position':checked.value[7],
-        'branchCode':userMenuData.value[1],
+    await globalAPI().post(`Menu/userMenusSave?selected=${JSON.stringify(checked.value)}`,{
+        userId : userDetails.value.id,
+        selectedUserId:userMenuData.value.id
+
+        
     })
         .then(async (response) => {
 
             if (response.status == 200) {
               
-                if(response.data.length != 0){
-                    response.data.forEach(element => {
-                        if(element.menuId == 3){
-                            checked.value[0] = true
-                        }
-                        if (element.menuId == 4) {
-                            checked.value[1] = true
-                        }
-                        if (element.menuId == 5) {
-                            checked.value[2] = true
-                        }
-                        if (element.menuId == 6) {
-                            checked.value[3] = true
-                        }
-                        if (element.menuId == 7) {
-                            checked.value[4] = true
-                        }
-                        if (element.menuId == 8) {
-                            checked.value[5] = true
-                        }
-                        if (element.menuId == 9) {
-                            checked.value[6] = true
-                        }
-                        if (element.menuId == 10) {
-                            checked.value[7] = true
-                        }
-                       
-                    });
+               
                   
-                }
                 
-                        slawStatusPopUp("Success","Successfully Saved")
+                
+                        slawStatusPopUp(response.data)
                 loading.value = false
             }
             else if (response.status == 202 || response.status == 401) {

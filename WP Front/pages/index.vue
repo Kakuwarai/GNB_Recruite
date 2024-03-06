@@ -63,7 +63,9 @@ async function login() {
 
             if (response.status == 200) {
                 console.log(response.data);
-                localStorage.setItem("login",JSON.stringify(response.data))
+                localStorage.setItem("login",JSON.stringify(response.data.user))
+                localStorage.setItem("parentMenu",JSON.stringify(response.data.parentTemp1))
+                localStorage.setItem("childMenu",JSON.stringify(response.data.menuListTemp1))
                 // localStorage.setItem("login",JSON.stringify(response.data.logChecker) )
                 // localStorage.setItem("branches",JSON.stringify(response.data.selectedUserBranches) )
                 // //localStorage.setItem("menus",JSON.stringify(response.data.menus) )

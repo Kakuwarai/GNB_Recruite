@@ -37,7 +37,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="m1 9 4-4-4-4" />
                     </svg>
-                    <span class="ml-1 text-sm font-medium  md:ml-2 text-gray-400">Candidates</span>
+                    <span class="ml-1 text-sm font-medium  md:ml-2 text-gray-400">Progress</span>
                 </div>
             </li>
         </ol>
@@ -191,16 +191,9 @@ const router = useRouter(),
     jobCandidateList = ref([]),
     filterBy = ref("Select All"),
     filterList = ref([
-        "Select All",
-        "New",
-        "Fees & Terms Sent",
-        "Waiting for Response",
-        "Pre-screen Scheduled",
-        "Pre-screen Passed",
-        "Documents Received ",
-        "Forwarded",
-        "Final Interview Passed"
-
+        "Progress",
+        "Selected",
+        "Not Selected"
     ])
 
 
@@ -286,7 +279,7 @@ async function getDetails() {
 
 async function jobCandidates() {
 loadingTable.value = true
-    await globalAPI().post(`Candidate/jobCandidates`, {
+    await globalAPI().post(`Candidate/jobCandidates2`, {
         userId: userDetails.value.id,
         jobCode: editableTabsValue.value,
         filterBy: filterBy.value

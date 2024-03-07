@@ -8,7 +8,7 @@
     <nav class="flex px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
-                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-60">
+                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-red-60">
                     <svg class="w-3 h-3 mr-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 20 20">
                         <path
@@ -35,7 +35,7 @@
                             d="m1 9 4-4-4-4" />
                     </svg>
                     <a class="cursor-pointer ml-1 text-sm font-medium text-gray-700  md:ml-2 "
-                        @click="$router.replace('/maintenance/mMenus/menu')">Menus</a>
+                        @click="$router.replace('/maintenance/menu/menu')">Menus</a>
                 </div>
             </li>
             <li aria-current="page">
@@ -69,7 +69,7 @@
 
                             <span class="text-large font-600 mr-3"> Menu </span>
 
-                            <el-tag>Edit</el-tag>
+                            <el-tag type="danger">Edit</el-tag>
                         </div>
                     </template>
                 </el-page-header>
@@ -81,26 +81,26 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 
                 <button @click="checked[0] == true? checked[0]=false:checked[0]=true"
-                :class=" checked[0]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[0]?'shadow-red-100 border-red-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl  hover:bg-gray-100 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Posting
-                        <el-tag :type="checked[0]? '':'info'">{{ checked[0]?'Active':'Inactive' }}</el-tag>
+                        <el-tag :type="checked[0]? 'danger':'info'">{{ checked[0]?'Active':'Inactive' }}</el-tag>
                     </h5>
                 </button>
 
                 <button @click="checked[1] == true? checked[1]=false:checked[1]=true"
-                :class=" checked[1]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[1]?'shadow-red-100 border-red-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl  hover:bg-gray-100 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Candidates
-                        <el-tag :type="checked[1]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
+                        <el-tag :type="checked[1]? 'danger':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
                     </h5>
                 </button>
 
                 <button @click="checked[2] == true? checked[2]=false:checked[2]=true"
-                :class=" checked[2]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[2]?'shadow-red-100 border-red-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl  hover:bg-gray-100 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Progress
-                        <el-tag :type="checked[2]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
+                        <el-tag :type="checked[2]? 'danger':'info'">{{ checked[2]?'Active':'Inactive' }}</el-tag>
                     </h5>
                 </button>
 
@@ -112,28 +112,28 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
 
                 <button  @click="checked[3] == true? checked[3]=false:checked[3]=true"
-                :class=" checked[3]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[3]?'shadow-red-100 border-red-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Users
-                        <el-tag :type="checked[3]? '':'info'">{{ checked[1]?'Active':'Inactive' }}</el-tag>
+                        <el-tag :type="checked[3]? 'danger':'info'">{{ checked[2]?'Active':'Inactive' }}</el-tag>
                     </h5>
                   
                 </button>
 
                 <button  @click="checked[4] == true? checked[4]=false:checked[4]=true"
-                :class=" checked[2]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[4]?'shadow-red-100 border-red-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Job
-                        <el-tag :type="checked[4]? '':'info'">{{ checked[4]?'Active':'Inactive' }}</el-tag>
+                        <el-tag :type="checked[4]? 'danger':'info'">{{ checked[4]?'Active':'Inactive' }}</el-tag>
                     </h5>
                   
                 </button>
 
                 <button  @click="checked[5] == true? checked[5]=false:checked[5]=true"
-                :class=" checked[5]?'shadow-blue-100 border-blue-200': 'shadow-gray-100 border-gray-200' "
+                :class=" checked[5]?'shadow-red-100 border-red-200': 'shadow-gray-100 border-gray-200' "
                 class="p-5 border rounded-2xl shadow-xl hover:bg-gray-100 ">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Menu
-                        <el-tag :type="checked[5]? '':'info'">{{ checked[5]?'Active':'Inactive' }}</el-tag>
+                        <el-tag :type="checked[5]? 'danger':'info'">{{ checked[5]?'Active':'Inactive' }}</el-tag>
                     </h5>
                   
                 </button>
@@ -186,11 +186,11 @@ const userDetails = ref(JSON.parse(localStorage.getItem('login'))),
           A 15 15, 0, 0, 1, 15 30
           A 15 15, 0, 1, 1, 27.99 7.5
           L 15 15
-        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+        " style="stroke-width: 4px; fill: rgba(0, 0, 0, 0);stroke: red;"/>
       `,
       checked = ref([false, false, false, false, false,false,false,false]),
       onBack = () => {
-        router.replace('/maintenance/mMenus/menu')
+        router.replace('/Maintenance/menu/menu')
     }
 
 onMounted(() => {
@@ -252,12 +252,9 @@ async function userMenu() {
 async function btnSave() {
     whoIsLoading.value = 'Saving...'
     loading.value = true
-    await globalAPI().post(`Menu/userMenusSave?selected=${JSON.stringify(checked.value)}`,{
-        userId : userDetails.value.id,
-        selectedUserId:userMenuData.value.id
-
-        
-    })
+    console.log(userDetails.value.id);
+    console.log(userMenuData.value.id)
+    await globalAPI().post(`Menu/userMenusSave?selected=${JSON.stringify(checked.value)}&userId=${userDetails.value.id}&selectedUserId=${userMenuData.value.id}`)
         .then(async (response) => {
 
             if (response.status == 200) {

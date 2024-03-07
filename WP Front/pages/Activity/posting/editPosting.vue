@@ -96,6 +96,13 @@
                             </el-select>
                         </el-form-item>
 
+                        <el-form-item label="Responsibility" prop="responsibility" :rules="[
+                            { required: true, message: 'Responsibility is required' },
+                            //{ type: 'number', message: 'Salary must be a number' },
+                        ]">
+                            <el-input v-model.number="numberValidateForm.responsibility" :autosize="{ minRows: 2, maxRows: 4 }"
+                                type="textarea" autocomplete="off" />
+                        </el-form-item>
                         
                         <el-form-item label="Requirements" prop="requirements" :rules="[
                             { required: true, message: 'Requirements is required' },
@@ -315,6 +322,7 @@ const svg = `
         per:'',
         salaryFrom: '',
         salaryTo:'',
+        responsibility:'',
         description: '',
         requirements: '',
         recruiter:  ([]),
@@ -353,6 +361,7 @@ loadingSave.value = true
                 numberValidateForm.value.job = editDetails.value.jobCode
                 numberValidateForm.value.language =  tempLanguage.value
                 numberValidateForm.value.requirements = editDetails.value.requirements
+                numberValidateForm.value.responsibility = editDetails.value.responsibility
                 numberValidateForm.value.description = editDetails.value.description
                 numberValidateForm.value.positionNumber = editDetails.value.positionCount
                 numberValidateForm.value.currency = editDetails.value.currency
@@ -374,7 +383,6 @@ loadingSave.value = true
                     index.value = index.value + 1
                 });
                 
-console.log(numberValidateForm.value.recruiter);
                
                 // slawStatusPopUp('Successfully added')
 
@@ -414,6 +422,7 @@ async function savebutton() {
     salary: `${numberValidateForm.value.salaryFrom}-${numberValidateForm.value.salaryTo}`,
     location: numberValidateForm.value.location,
     type: numberValidateForm.value.type,
+    responsibility: numberValidateForm.value.responsibility,
     description: numberValidateForm.value.description,
     requirements: numberValidateForm.value.requirements,
     modifiedBy: userDetails.value.id,

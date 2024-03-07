@@ -97,6 +97,14 @@
                         </el-form-item>
 
                         
+                        <el-form-item label="Responsibility" prop="responsibility" :rules="[
+                            { required: true, message: 'Responsibility is required' },
+                            //{ type: 'number', message: 'Salary must be a number' },
+                        ]">
+                            <el-input v-model.number="numberValidateForm.responsibility" :autosize="{ minRows: 2, maxRows: 4 }"
+                                type="textarea" autocomplete="off" />
+                        </el-form-item>
+
                         <el-form-item label="Requirements" prop="requirements" :rules="[
                             { required: true, message: 'Requirements is required' },
                             //{ type: 'number', message: 'Salary must be a number' },
@@ -314,6 +322,7 @@ const svg = `
         per:'',
         salaryFrom: '',
         salaryTo:'',
+        responsibility:'',
         description: '',
         requirements: '',
         recruiter:  ([]),
@@ -381,6 +390,7 @@ async function savebutton() {
     languageCodes: JSON.stringify(numberValidateForm.value.language),
     positionCount: numberValidateForm.value.positionNumber,
     currency: numberValidateForm.value.currency,
+    responsibility: numberValidateForm.value.responsibility,
     per: numberValidateForm.value.per,
     salary: `${numberValidateForm.value.salaryFrom}-${numberValidateForm.value.salaryTo}`,
     location: numberValidateForm.value.location,
